@@ -41,6 +41,7 @@ Para levantar el proyecto en tu entorno local, es necesario contar con los sigui
 * [Node.js](https://nodejs.org/) (versión 18 o superior)
 * [PostgreSQL](https://www.postgresql.org/) y pgAdmin
 * [Git](https://git-scm.com/)
+* [pnpm](https://pnpm.io/)
 
 ### 1. Clonar el repositorio
 ```bash
@@ -48,18 +49,7 @@ git clone https://github.com/JulianScipioni06/Proyecto-Metodologia-II.git
 cd Proyecto-Metodologia-II
 ```
 
-### 2. Configurar la Base de Datos
-1. Abre pgAdmin en tu computadora.
-2. Crea una nueva base de datos llamada vetsync (o el nombre que prefieras).
-
-### 3. Configurar Variables de Entorno
-Dentro de la carpeta del backend, encontrarás un archivo .env.example.
-1. Duplícalo y renómbralo a .env.
-2. Completa las variables con tus credenciales locales de PostgreSQL (usuario, contraseña, puerto local y nombre de la base de datos creada en el paso anterior).
-
-**Importante**: El archivo .env no debe ser subido al repositorio.
-
-### 4. Instalar dependencias
+### 2. Instalar dependencias
 Debes instalar los paquetes tanto del servidor como del cliente:
 ```bash
 # En el directorio del backend
@@ -71,7 +61,7 @@ cd ../frontend
 pnpm install
 ```
 
-### 5. Iniciar la Aplicación
+### 3. Iniciar la Aplicación
 Abre dos terminales en simultáneo:
 
 * Terminal 1 (Backend):
@@ -85,3 +75,14 @@ Abre dos terminales en simultáneo:
     cd frontend
     pnpm run dev
     ```
+
+## Estado del Proyecto
+🚧 **En desarrollo (Fase Inicial - Setup de Entorno)** 🚧
+Actualmente, el proyecto se encuentra en su fase inicial. Donde se estan terminando de definir conceptos para arrnacar con el desarrollo del mismo.
+
+## Próximos Pasos
+A corto y mediano plazo, el equipo tiene planificado avanzar con los siguientes hitos:
+* **Construcción de la Metodología del Sistema:** Definición detallada de los requerimientos funcionales, historias de usuario y flujos de trabajo del sistema veterinario.
+* **Modelado de la Base de Datos:** Diseño de las entidades principales (Mascotas, Clientes, Turnos, Inventario) y su respectiva implementación utilizando Sequelize como ORM.
+* **Configuración de Conexión de Datos:** Integración del servidor backend con PostgreSQL mediante variables de entorno (`.env`) seguras.
+* **Maquetado de la Interfaz (Frontend):** Creación de las vistas y componentes iniciales en React para el panel de administración.
