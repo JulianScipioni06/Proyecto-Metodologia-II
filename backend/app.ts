@@ -1,6 +1,4 @@
-import express from 'express';
-const app = express();
+import Server from './core/server';
 
-app.listen(3000, () => {
-  console.log('¡El servidor de VetSync está levantando perfecto en el puerto 3000!');
-});
+const server = new Server();
+server.listen(); 
