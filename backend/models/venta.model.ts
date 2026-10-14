@@ -5,6 +5,7 @@ class Venta extends Model {
     declare id_venta: number;
     declare fecha_venta: Date;
     declare monto_total: number;
+    declare id_cliente: number;
 }
 
 Venta.init(
