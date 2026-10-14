@@ -27,10 +27,6 @@ Mascota.init(
         raza: {
             type: DataTypes.STRING(50),
             allowNull: true, 
-        },
-        cliente_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false, 
         }
     },
     
