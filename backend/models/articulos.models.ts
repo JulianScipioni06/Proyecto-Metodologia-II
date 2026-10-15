@@ -32,4 +32,4 @@ Articulo.init(
     }
 );
 
-module.exports = Articulo;
+export default Articulo;
