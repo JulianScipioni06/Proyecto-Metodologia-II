@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import VentaFacade from '../services/venta.facade';
 import Venta from '../models/venta.model';
 
-export const obtenerVentas = async (req: Request, res: Response): Promise<void> => {
+export const getVentas = async (req: Request, res: Response): Promise<void> => {
     try {
         const ventas = await Venta.findAll();
         res.status(200).json(ventas);
