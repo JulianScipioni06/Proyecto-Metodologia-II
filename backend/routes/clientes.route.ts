@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { getClientes, getCliente, postCliente, putCliente, deleteCliente } from '../controllers/clientes.controller';
+import {
+    getClientes, 
+    getCliente, 
+    postCliente, 
+    putCliente, 
+    deleteCliente 
+} from '../controllers/cliente.controller';
 
 
 const router = Router();

@@ -2,6 +2,11 @@ import express, { type Application, type Request, type Response, type NextFuncti
 import cors from 'cors';
 import 'dotenv/config'; 
 import db from '../models/index';
+import clientesRoutes from '../routes/clientes.route';
+import articulosRoutes from '../routes/articulos.route'; 
+import mascotasRoutes from '../routes/mascotas.route'; 
+import turnosRoutes from '../routes/turnos.route'; 
+import ventasRoutes from '../routes/venta.routes';
 
 class Server {
     public app: Application;
@@ -12,7 +17,7 @@ class Server {
         this.port = process.env.PORT || 3000;
         this.connectToDataBase();
         this.middleware();
-        // this.rutas();
+        this.rutas();
         // this.errorHandlerGlobal();
     }
 
@@ -21,7 +26,13 @@ class Server {
         this.app.use(express.json());
     }
 
-    // rutas() { ... }
+    rutas() {
+        this.app.use('/api/clientes', clientesRoutes);
+        this.app.use('/api/articulos', articulosRoutes);
+        this.app.use('/api/mascotas', mascotasRoutes);
+        this.app.use('/api/turnos', turnosRoutes);
+        this.app.use('/api/ventas', ventasRoutes);
+    }
     
     // errorHandlerGlobal() { ... }
 
