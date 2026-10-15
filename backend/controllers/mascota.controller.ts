@@ -1,8 +1,7 @@
 import {Request, Response} from 'express';
 const Mascota = require('./mascota.model');
 
-//obtener todas las mascotas - get
-export const obtenerMascotas = async (req: Request, res: Response) => {
+export const getMascotas = async (req: Request, res: Response) => {
     try {
         const mascotas = await Mascota.findAll();
         res.status(200).json(mascotas);
@@ -11,8 +10,7 @@ export const obtenerMascotas = async (req: Request, res: Response) => {
     }
 };
 
-//obtener una mascota por id - get
-export const obtenerMascotaPorId = async (req: Request, res: Response) => {
+export const getMascotabyId = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
 
@@ -27,8 +25,7 @@ export const obtenerMascotaPorId = async (req: Request, res: Response) => {
     }
 };
 
-//crear mascotas - post
-export const crearMascota = async (req: Request, res: Response) => {
+export const postMascota = async (req: Request, res: Response) => {
     try {
         const nuevaMascota = await Mascota.create(req.body);
         res.status(201).json(nuevaMascota);
@@ -37,8 +34,7 @@ export const crearMascota = async (req: Request, res: Response) => {
     }
 };
 
-//actualizar mascota - put
-export const actualizarMascota = async (req: Request, res: Response) => {
+export const putMascota = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
 
@@ -55,8 +51,7 @@ export const actualizarMascota = async (req: Request, res: Response) => {
     }
 };
 
-//eliminar mascota - delete
-export const eliminarMascota = async (req: Request, res: Response) => {
+export const deleteMascota = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
 

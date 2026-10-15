@@ -38,4 +38,4 @@ Mascota.init(
     }
 );
 
-module.exports = Mascota;
+export default Mascota;
