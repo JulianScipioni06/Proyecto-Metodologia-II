@@ -37,4 +37,4 @@ Cliente.init(
     }
 );
 
-module.exports = Cliente;
+export default Cliente;
