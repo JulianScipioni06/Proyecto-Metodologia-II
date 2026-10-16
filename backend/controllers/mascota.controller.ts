@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-const Mascota = require('./mascota.model');
+import Mascota from '../models/mascotas.models';
 
 export const getMascotas = async (req: Request, res: Response) => {
     try {
@@ -13,8 +13,9 @@ export const getMascotas = async (req: Request, res: Response) => {
 export const getMascotabyId = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
-
-        const mascota = await Mascota.findByPk(id);
+        const idParseado = parseInt(id as string, 10);
+        
+        const mascota = await Mascota.findByPk(idParseado);
 
         if (!mascota) {
             return res.status(404).json({mensaje: 'Mascota no encontrada'});
@@ -37,8 +38,9 @@ export const postMascota = async (req: Request, res: Response) => {
 export const putMascota = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
-
-        const mascota = await Mascota.findByPk(id);
+        const idParseado = parseInt(id as string, 10);
+        
+        const mascota = await Mascota.findByPk(idParseado);
         if (!mascota) {
             return res.status(404).json({mensaje: 'Mascota no encontrada para actualizar'});
         }
@@ -54,8 +56,9 @@ export const putMascota = async (req: Request, res: Response) => {
 export const deleteMascota = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
-
-        const mascota = await Mascota.findByPk(id);
+        const idParseado = parseInt(id as string, 10);
+        
+        const mascota = await Mascota.findByPk(idParseado);
         if (!mascota) {
             return res.status(404).json({mensaje: 'Mascota no encontrada para eliminar'});
         }
