@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import db from './index'; // Importamos el db que configuraste en tu index.ts
+import sequelize from './connection';
 
 class DetalleVenta extends Model {
     declare id_detalle: number;
@@ -26,7 +26,7 @@ DetalleVenta.init(
         }
     },
     {
-        sequelize: db.sequelize,
+        sequelize,
         modelName: 'DetalleVenta',
         tableName: 'detalleVentas',
         timestamps: false,

@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-const { sequelize } = require('./index'); 
+import sequelize from './connection';
 
 class Articulo extends Model {
     declare id_articulo: number;

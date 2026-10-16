@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-const { sequelize } = require('./index');
+import sequelize from './connection';
 
 class Turno extends Model {
     declare id_turno: number;
@@ -51,4 +51,4 @@ Turno.init(
     }
 );
 
-module.exports = Turno;
+export default Turno;
