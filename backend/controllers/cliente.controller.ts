@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-const Cliente = require('../models/cliente');
+import {Request, Response} from 'express';
+import Cliente from '../models/clientes.model';
 
 export const getClientes = async (req: Request, res: Response) => {
     try {
@@ -12,8 +12,10 @@ export const getClientes = async (req: Request, res: Response) => {
 
 export const getCliente = async (req: Request, res: Response) => {
     const { id } = req.params;
+    const idParseado = parseInt(id as string, 10);
+
     try {
-        const cliente = await Cliente.findByPk(id);
+        const cliente = await Cliente.findByPk(idParseado);
         if (cliente) {
             res.json(cliente);
         } else {
@@ -36,9 +38,10 @@ export const postCliente = async (req: Request, res: Response) => {
 
 export const putCliente = async (req: Request, res: Response) => {
     const { id } = req.params;
+    const idParseado = parseInt(id as string, 10);
     const { body } = req;
     try {
-        const cliente = await Cliente.findByPk(id);
+        const cliente = await Cliente.findByPk(idParseado);
         if (!cliente) {
             return res.status(404).json({ msg: `No existe un cliente con el id ${id}` });
         }
@@ -52,8 +55,9 @@ export const putCliente = async (req: Request, res: Response) => {
 
 export const deleteCliente = async (req: Request, res: Response) => {
     const { id } = req.params;
+    const idParseado = parseInt(id as string, 10);
     try {
-        const cliente = await Cliente.findByPk(id);
+        const cliente = await Cliente.findByPk(idParseado);
         if (!cliente) {
             return res.status(404).json({ msg: `No existe un cliente con el id ${id}` });
         }

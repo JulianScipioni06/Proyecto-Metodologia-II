@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-const Articulo = require('../models/articulos.models');
+import Articulo from '../models/articulos.model';
 
 export const getArticulos = async (req: Request, res: Response) => {
     try {
@@ -13,7 +13,9 @@ export const getArticulos = async (req: Request, res: Response) => {
 export const getArticuloById = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
-        const articulo = await Articulo.findByPk(id);
+        const idParseado = parseInt(id as string, 10);
+
+        const articulo = await Articulo.findByPk(idParseado);
 
         if (!articulo) {
             return res.status(404).json({mensaje: 'Artículo no encontrado'});
@@ -36,8 +38,9 @@ export const postArticulo = async (req: Request, res: Response) => {
 export const putArticulo = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
+        const idParseado = parseInt(id as string, 10);
         
-        const articulo = await Articulo.findByPk(id);
+        const articulo = await Articulo.findByPk(idParseado);
         if (!articulo) {
             return res.status(404).json({mensaje: 'Artículo no encontrado para actualizar'});
         }
@@ -52,8 +55,9 @@ export const putArticulo = async (req: Request, res: Response) => {
 export const deleteArticulo = async (req: Request, res: Response) => {
     try {
         const {id} = req.params;
+        const idParseado = parseInt(id as string, 10);
 
-        const articulo = await Articulo.findByPk(id);
+        const articulo = await Articulo.findByPk(idParseado);
         if (!articulo) {
             return res.status(404).json({mensaje: 'Artículo no encontrado para eliminar'});
         }
