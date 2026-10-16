@@ -28,7 +28,7 @@ Transferimos toda la complejidad operativa (apertura de transacciones, validaci√
 
 ## 5. Evidencia y trade-offs
 *Evidencia del cambio:*
-* https://github.com/JulianScipioni06/Proyecto-Metodologia-II/commit/c4e4197ad00c9198bf3607821d236c13e4dbdbaf
+* https://github.com/JulianScipioni06/Proyecto-Metodologia-II/commit/93283ad96f8d90ebedc42b6614299c95d691f0c4
 
 *Trade-offs (Beneficios y Costos):*
 * *Beneficios:* 
