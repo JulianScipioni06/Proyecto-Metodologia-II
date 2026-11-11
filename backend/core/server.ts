@@ -7,6 +7,7 @@ import articulosRoutes from '../routes/articulos.route';
 import mascotasRoutes from '../routes/mascotas.route'; 
 import turnosRoutes from '../routes/turnos.route'; 
 import ventasRoutes from '../routes/venta.routes';
+import { errorHandlerGlobal } from '../middlewares/errorHandler';
 
 class Server {
     public app: Application;
@@ -18,7 +19,6 @@ class Server {
         this.connectToDataBase();
         this.middleware();
         this.rutas();
-        // this.errorHandlerGlobal();
     }
 
     middleware() {
@@ -32,9 +32,8 @@ class Server {
         this.app.use('/api/mascotas', mascotasRoutes);
         this.app.use('/api/turnos', turnosRoutes);
         this.app.use('/api/ventas', ventasRoutes);
+        this.app.use(errorHandlerGlobal)
     }
-    
-    // errorHandlerGlobal() { ... }
 
     async connectToDataBase() {
         try {
