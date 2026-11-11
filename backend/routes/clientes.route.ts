@@ -7,15 +7,17 @@ import {
     deleteCliente 
 } from '../controllers/cliente.controller';
 
+import validateInputCliente from '../middlewares/cliente.middleware';
+
 
 const router = Router();
 
 router.get('/', getClientes);
 router.get('/:id', getCliente);
 
-router.post('/', postCliente);
+router.post('/', validateInputCliente, postCliente);
 
-router.put('/:id', putCliente);
+router.put('/:id', validateInputCliente, putCliente);
 router.delete('/:id', deleteCliente);
 
 export default router;
