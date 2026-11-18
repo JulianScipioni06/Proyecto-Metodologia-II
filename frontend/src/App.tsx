@@ -2,19 +2,24 @@ import { useState } from 'react';
 import './App.css';
 import { Sidebar } from './components/Sidebar';
 import type { SeccionActiva } from './types/models';
+import { ClientesPage } from './pages/ClientesPage';
 
 export function App() {
     const [seccionActiva, setSeccionActiva] = useState<SeccionActiva>('clientes');
 
     const renderSeccion = () => {
-        return (
-            <div className="card">
-                <h3>Módulo: {seccionActiva.toUpperCase()}</h3>
-                <p>En Desarrolo</p>
-            </div>
-        );
+      switch (seccionActiva){
+        case 'clientes':
+          return <ClientesPage/>
+        default:
+          return (
+                <div className="card">
+                    <h3>Módulo: {seccionActiva.toUpperCase()}</h3>
+                    <p>En Desarrolo</p>
+                </div>
+            );
+      }
     };
-
     return (
         <div className="app-layout">
             <Sidebar seccionActiva={seccionActiva} onSelectSeccion={setSeccionActiva} />
