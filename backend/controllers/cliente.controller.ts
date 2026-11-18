@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-const Cliente = require('../models/cliente');
+import Cliente from '../models/clientes.model';
 
 export const getClientes = async (req: Request, res: Response) => {
     try {
@@ -12,12 +12,16 @@ export const getClientes = async (req: Request, res: Response) => {
 
 export const getCliente = async (req: Request, res: Response) => {
     const { id } = req.params;
+    const idParseado = parseInt(id as string, 10);
+
     try {
-        const cliente = await Cliente.findByPk(id);
+        const cliente = await Cliente.findByPk(idParseado);
         if (cliente) {
             res.json(cliente);
         } else {
-            res.status(404).json({ msg: `No existe un cliente con el id ${id}` });
+            res.status(404).json({
+                msg: `No existe un cliente con el id ${id}`,
+            });
         }
     } catch (error) {
         res.status(500).json({ msg: 'Error al obtener el cliente', error });
@@ -25,7 +29,7 @@ export const getCliente = async (req: Request, res: Response) => {
 };
 
 export const postCliente = async (req: Request, res: Response) => {
-    const { body } = req; 
+    const { body } = req;
     try {
         const cliente = await Cliente.create(body);
         res.status(201).json(cliente);
@@ -36,11 +40,14 @@ export const postCliente = async (req: Request, res: Response) => {
 
 export const putCliente = async (req: Request, res: Response) => {
     const { id } = req.params;
+    const idParseado = parseInt(id as string, 10);
     const { body } = req;
     try {
-        const cliente = await Cliente.findByPk(id);
+        const cliente = await Cliente.findByPk(idParseado);
         if (!cliente) {
-            return res.status(404).json({ msg: `No existe un cliente con el id ${id}` });
+            return res
+                .status(404)
+                .json({ msg: `No existe un cliente con el id ${id}` });
         }
 
         await cliente.update(body);
@@ -52,10 +59,13 @@ export const putCliente = async (req: Request, res: Response) => {
 
 export const deleteCliente = async (req: Request, res: Response) => {
     const { id } = req.params;
+    const idParseado = parseInt(id as string, 10);
     try {
-        const cliente = await Cliente.findByPk(id);
+        const cliente = await Cliente.findByPk(idParseado);
         if (!cliente) {
-            return res.status(404).json({ msg: `No existe un cliente con el id ${id}` });
+            return res
+                .status(404)
+                .json({ msg: `No existe un cliente con el id ${id}` });
         }
 
         await cliente.destroy();
