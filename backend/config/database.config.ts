@@ -15,15 +15,17 @@ const dbConfig = {
             max: 7,
             min: 0,
             acquire: 30000,
-            idle: 10000
+            idle: 10000,
         },
-        dialectOptions: esNube ? {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-            }
-        } : {}
-    }
+        dialectOptions: esNube
+            ? {
+                  ssl: {
+                      require: true,
+                      rejectUnauthorized: false,
+                  },
+              }
+            : {},
+    },
 };
 
 export default dbConfig;

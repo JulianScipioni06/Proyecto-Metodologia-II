@@ -1,12 +1,13 @@
-import express, { type Application, type Request, type Response, type NextFunction } from 'express';
+import express, { type Application } from 'express';
 import cors from 'cors';
-import 'dotenv/config'; 
+import 'dotenv/config';
 import db from '../models/index';
 import clientesRoutes from '../routes/clientes.route';
-import articulosRoutes from '../routes/articulos.route'; 
-import mascotasRoutes from '../routes/mascotas.route'; 
-import turnosRoutes from '../routes/turnos.route'; 
+import articulosRoutes from '../routes/articulos.route';
+import mascotasRoutes from '../routes/mascotas.route';
+import turnosRoutes from '../routes/turnos.route';
 import ventasRoutes from '../routes/venta.routes';
+import { errorHandlerGlobal } from '../middlewares/errorHandler';
 
 class Server {
     public app: Application;
@@ -15,10 +16,8 @@ class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT || 3000;
-        this.connectToDataBase();
         this.middleware();
         this.rutas();
-        // this.errorHandlerGlobal();
     }
 
     middleware() {
@@ -32,9 +31,8 @@ class Server {
         this.app.use('/api/mascotas', mascotasRoutes);
         this.app.use('/api/turnos', turnosRoutes);
         this.app.use('/api/ventas', ventasRoutes);
+        this.app.use(errorHandlerGlobal);
     }
-    
-    // errorHandlerGlobal() { ... }
 
     async connectToDataBase() {
         try {
@@ -46,11 +44,12 @@ class Server {
         }
     }
 
-    listen() {
+    async listen() {
+        await this.connectToDataBase();
         this.app.listen(this.port, () => {
             console.log(`La API esta escuchando en el puerto: ${this.port}`);
         });
     }
 }
 
-export default Server; 
+export default Server;
