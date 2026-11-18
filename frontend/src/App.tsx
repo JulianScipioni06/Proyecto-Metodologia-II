@@ -3,6 +3,7 @@ import './App.css';
 import { Sidebar } from './components/Sidebar';
 import type { SeccionActiva } from './types/models';
 import { ClientesPage } from './pages/ClientesPage';
+import { MascotasPage } from './pages/MascotasPage';
 
 export function App() {
     const [seccionActiva, setSeccionActiva] = useState<SeccionActiva>('clientes');
@@ -10,7 +11,9 @@ export function App() {
     const renderSeccion = () => {
       switch (seccionActiva){
         case 'clientes':
-          return <ClientesPage/>
+          return <ClientesPage/>;
+        case 'mascotas':
+          return <MascotasPage/>;
         default:
           return (
                 <div className="card">
