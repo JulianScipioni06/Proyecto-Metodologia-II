@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import validateInputArticulo from '../middlewares/articulo.middleware'
+import validateInputArticulo from '../middlewares/articulo.middleware';
 
-import { 
-    getArticulos, 
-    getArticuloById, 
-    postArticulo, 
-    putArticulo, 
-    deleteArticulo 
+import {
+    getArticulos,
+    getArticuloById,
+    postArticulo,
+    putArticulo,
+    deleteArticulo,
 } from '../controllers/articulos.controller';
 
 const router = Router();

@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 
-const validateInputTurno = (req: Request, res: Response, next: NextFunction) => {
+const validateInputTurno = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     const { fecha, horario, descripcion, monto, estado, mascota_id } = req.body;
     const errores: string[] = [];
 
@@ -8,7 +12,9 @@ const validateInputTurno = (req: Request, res: Response, next: NextFunction) => 
     if (!fecha) {
         errores.push('La fecha es obligatoria.');
     } else if (isNaN(Date.parse(fecha))) {
-        errores.push('La fecha debe ser válida y tener un formato reconocido (ejemplo: AAAA-MM-DD).');
+        errores.push(
+            'La fecha debe ser válida y tener un formato reconocido (ejemplo: AAAA-MM-DD).'
+        );
     }
 
     // 2. Validación del horario
@@ -47,6 +53,6 @@ const validateInputTurno = (req: Request, res: Response, next: NextFunction) => 
     }
 
     next();
-}
+};
 
 export default validateInputTurno;

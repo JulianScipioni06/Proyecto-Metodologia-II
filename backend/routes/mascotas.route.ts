@@ -1,16 +1,15 @@
 import { Router } from 'express';
-import validateInputMascota from '../middlewares/mascota.middleware'
+import validateInputMascota from '../middlewares/mascota.middleware';
 
-import { 
-    getMascotas, 
-    getMascotabyId, 
-    postMascota, 
-    putMascota, 
-    deleteMascota 
+import {
+    getMascotas,
+    getMascotabyId,
+    postMascota,
+    putMascota,
+    deleteMascota,
 } from '../controllers/mascota.controller';
 
 const router = Router();
-
 
 router.get('/', getMascotas);
 router.get('/:id', getMascotabyId);

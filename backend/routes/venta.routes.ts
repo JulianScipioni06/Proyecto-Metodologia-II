@@ -1,6 +1,10 @@
 import { Router } from 'express';
-import { getVentas, crearVenta, anularVenta } from '../controllers/venta.controller';
-import validateInputVenta from '../middlewares/venta.middleware'
+import {
+    getVentas,
+    crearVenta,
+    anularVenta,
+} from '../controllers/venta.controller';
+import validateInputVenta from '../middlewares/venta.middleware';
 
 const router = Router();
 

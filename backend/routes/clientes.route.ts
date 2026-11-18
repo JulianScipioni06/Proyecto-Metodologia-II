@@ -1,14 +1,13 @@
 import { Router } from 'express';
 import {
-    getClientes, 
-    getCliente, 
-    postCliente, 
-    putCliente, 
-    deleteCliente 
+    getClientes,
+    getCliente,
+    postCliente,
+    putCliente,
+    deleteCliente,
 } from '../controllers/cliente.controller';
 
 import validateInputCliente from '../middlewares/cliente.middleware';
-
 
 const router = Router();
 

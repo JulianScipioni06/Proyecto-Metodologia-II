@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 
-const validateInputArticulo = (req: Request, res: Response, next: NextFunction) => {
+const validateInputArticulo = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     const { nombre, stock, precio_unitario } = req.body;
     const errores: string[] = [];
 
@@ -30,6 +34,6 @@ const validateInputArticulo = (req: Request, res: Response, next: NextFunction) 
     }
 
     next();
-}
+};
 
 export default validateInputArticulo;

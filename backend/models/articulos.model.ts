@@ -12,16 +12,16 @@ Articulo.init(
     {
         nombre: {
             type: DataTypes.STRING(100),
-            allowNull: false, 
+            allowNull: false,
         },
         stock: {
             type: DataTypes.INTEGER,
-            allowNull: false, 
+            allowNull: false,
         },
         precio_unitario: {
             type: DataTypes.DECIMAL(10, 2),
-            allowNull: false, 
-        }
+            allowNull: false,
+        },
     },
 
     {

@@ -3,7 +3,7 @@ import sequelize from './connection';
 
 class DetalleVenta extends Model {
     declare id_detalle: number;
-    declare id_venta: number;    
+    declare id_venta: number;
     declare id_articulo: number;
     declare cant_articulo: number;
     declare precio_unidad: number;
@@ -11,19 +11,19 @@ class DetalleVenta extends Model {
 
 DetalleVenta.init(
     {
-        id_detalle : {
+        id_detalle: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
         },
-        cant_articulo : {
+        cant_articulo: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        precio_unidad : {
+        precio_unidad: {
             type: DataTypes.DECIMAL(10, 2),
             allowNull: false,
-        }
+        },
     },
     {
         sequelize,

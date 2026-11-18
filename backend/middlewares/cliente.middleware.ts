@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 
-const validateInputCliente = (req: Request, res: Response, next: NextFunction) => {
+const validateInputCliente = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     const { nombre, telefono, direccion } = req.body;
     const errores: string[] = [];
 
@@ -30,6 +34,6 @@ const validateInputCliente = (req: Request, res: Response, next: NextFunction) =
     }
 
     next();
-}
+};
 
 export default validateInputCliente;
