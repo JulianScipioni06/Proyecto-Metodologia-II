@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 
-const validateInputMascota = (req: Request, res: Response, next: NextFunction) => {
+const validateInputMascota = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     const { nombre, tipo, raza } = req.body;
     const errores: string[] = [];
 
@@ -30,6 +34,6 @@ const validateInputMascota = (req: Request, res: Response, next: NextFunction) =
     }
 
     next();
-}
+};
 
 export default validateInputMascota;

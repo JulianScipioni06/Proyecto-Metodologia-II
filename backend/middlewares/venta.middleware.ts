@@ -1,6 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 
-const validateInputVenta = (req: Request, res: Response, next: NextFunction) => {
+const validateInputVenta = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
     const { fecha_venta, monto_total, id_cliente } = req.body;
     const errores: string[] = [];
 
@@ -8,7 +12,9 @@ const validateInputVenta = (req: Request, res: Response, next: NextFunction) => 
     if (!fecha_venta) {
         errores.push('La fecha es obligatoria.');
     } else if (isNaN(Date.parse(fecha_venta))) {
-        errores.push('La fecha debe ser válida y tener un formato reconocido (ejemplo: AAAA-MM-DD).');
+        errores.push(
+            'La fecha debe ser válida y tener un formato reconocido (ejemplo: AAAA-MM-DD).'
+        );
     }
 
     // 2. Validación del monto_total
@@ -30,6 +36,6 @@ const validateInputVenta = (req: Request, res: Response, next: NextFunction) => 
     }
 
     next();
-}
+};
 
 export default validateInputVenta;
