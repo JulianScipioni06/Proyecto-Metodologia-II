@@ -5,9 +5,10 @@ import type { SeccionActiva } from './types/models';
 import { ClientesPage } from './pages/ClientesPage';
 import { MascotasPage } from './pages/MascotasPage';
 import { TurnosPage } from './pages/TurnosPage';
+import { ArticulosPage } from './pages/ArticulosPage';
 
 export function App() {
-    const [seccionActiva, setSeccionActiva] = useState<SeccionActiva>('clientes');
+    const [seccionActiva, setSeccionActiva] = useState<SeccionActiva>('turnos');
 
     const renderSeccion = () => {
       switch (seccionActiva){
@@ -17,6 +18,8 @@ export function App() {
           return <MascotasPage/>;
         case 'turnos':
           return <TurnosPage/>;
+        case 'articulos':
+          return <ArticulosPage/>;
         default:
           return (
                 <div className="card">

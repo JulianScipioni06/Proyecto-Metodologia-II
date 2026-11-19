@@ -29,6 +29,7 @@ export interface Articulo {
     id?: number;
     id_articulo?: number;
     nombre: string;
+    categoria?: string;
     stock: number;
     precio_unitario: number;
 }
