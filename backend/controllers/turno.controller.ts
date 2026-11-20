@@ -9,7 +9,7 @@ export const getTurnos = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener los turnos', error });
     }
-} 
+};
 
 //Filtrar por id
 export const getTurnoPorId = async (req: Request, res: Response) => {
@@ -25,25 +25,26 @@ export const getTurnoPorId = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener el turno', error });
     }
-} 
+};
 
 // Crear turno
 export const postTurno = async (req: Request, res: Response) => {
     try {
-        const { fecha, horario, descripcion, monto, estado, mascota_id } = req.body;
+        const { fecha, horario, descripcion, monto, estado, mascota_id } =
+            req.body;
         const nuevoTurno = await Turno.create({
             fecha,
             horario,
             descripcion,
             monto,
             estado,
-            mascota_id
+            mascota_id,
         });
         res.status(201).json(nuevoTurno);
     } catch (error) {
         res.status(500).json({ message: 'Error al crear el turno', error });
     }
-}
+};
 
 // Actualizar turno
 export const putTurno = async (req: Request, res: Response) => {
@@ -51,7 +52,8 @@ export const putTurno = async (req: Request, res: Response) => {
         const { id_turno } = req.params;
         const idParseado = parseInt(id_turno as string, 10);
 
-        const { fecha, horario, descripcion, monto, estado, mascota_id } = req.body;
+        const { fecha, horario, descripcion, monto, estado, mascota_id } =
+            req.body;
 
         const turno = await Turno.findByPk(idParseado);
         if (!turno) {
@@ -63,13 +65,16 @@ export const putTurno = async (req: Request, res: Response) => {
             descripcion,
             monto,
             estado,
-            mascota_id
+            mascota_id,
         });
         res.status(200).json(turno);
     } catch (error) {
-        res.status(500).json({ message: 'Error al actualizar el turno', error });
+        res.status(500).json({
+            message: 'Error al actualizar el turno',
+            error,
+        });
     }
-}
+};
 
 // Eliminar turno
 export const deleteTurno = async (req: Request, res: Response) => {

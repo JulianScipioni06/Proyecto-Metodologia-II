@@ -3,14 +3,18 @@ import Articulo from './articulos.model';
 import Venta from './venta.model';
 import DetalleVenta from './detalleVenta.model';
 import Cliente from './clientes.model';
-import Turno from './turnos.modelo'
+import Turno from './turnos.modelo';
 import Mascota from './mascotas.models';
 // Importá acá el resto de tus modelos (Cliente, Mascota, etc.)
 
-// Si tuvieras que armar las relaciones (las Foreign Keys), las definís acá abajo. 
+// Si tuvieras que armar las relaciones (las Foreign Keys), las definís acá abajo.
 // Ejemplo:
-// Venta.hasMany(DetalleVenta, { foreignKey: 'id_venta' });
-// DetalleVenta.belongsTo(Venta, { foreignKey: 'id_venta' });
+Venta.hasMany(DetalleVenta, {
+    foreignKey: 'id_venta',
+    as: 'detalles',
+    onDelete: 'CASCADE',
+});
+DetalleVenta.belongsTo(Venta, { foreignKey: 'id_venta' });
 
 const db = {
     sequelize,
@@ -19,7 +23,7 @@ const db = {
     DetalleVenta,
     Cliente,
     Turno,
-    Mascota
+    Mascota,
     // Agregá el resto acá
 };
 

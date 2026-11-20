@@ -46,7 +46,7 @@ Turno.init(
     {
         sequelize,
         modelName: 'Turno',
-        tableName: 'Turnos', 
+        tableName: 'Turnos',
         timestamps: false,
     }
 );

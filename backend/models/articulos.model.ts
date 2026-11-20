@@ -4,6 +4,7 @@ import sequelize from './connection';
 class Articulo extends Model {
     declare id_articulo: number;
     declare nombre: string;
+    declare categoria?: string;
     declare stock: number;
     declare precio_unitario: number;
 }
@@ -12,16 +13,20 @@ Articulo.init(
     {
         nombre: {
             type: DataTypes.STRING(100),
-            allowNull: false, 
+            allowNull: false,
+        },
+        categoria: {
+            type: DataTypes.STRING(50),
+            allowNull: true,
         },
         stock: {
             type: DataTypes.INTEGER,
-            allowNull: false, 
+            allowNull: false,
         },
         precio_unitario: {
             type: DataTypes.DECIMAL(10, 2),
-            allowNull: false, 
-        }
+            allowNull: false,
+        },
     },
 
     {

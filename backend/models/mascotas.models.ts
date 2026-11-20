@@ -2,11 +2,11 @@ import { DataTypes, Model } from 'sequelize';
 import sequelize from './connection';
 
 class Mascota extends Model {
-    declare id_mascota: number; 
-    declare nombre: string;     
-    declare tipo: string;       
-    declare raza?: string;      
-    declare cliente_id: number; 
+    declare id_mascota: number;
+    declare nombre: string;
+    declare tipo: string;
+    declare raza?: string;
+    declare cliente_id: number;
 }
 
 Mascota.init(
@@ -18,23 +18,26 @@ Mascota.init(
         },
         nombre: {
             type: DataTypes.STRING(100),
-            allowNull: false, 
+            allowNull: false,
         },
         tipo: {
             type: DataTypes.STRING(20),
-            allowNull: false, 
+            allowNull: false,
         },
         raza: {
             type: DataTypes.STRING(50),
-            allowNull: true, 
-        }
+            allowNull: true,
+        },
+        cliente_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
     },
-    
     {
         sequelize,
         modelName: 'Mascota',
         tableName: 'mascotas',
-        timestamps: false, 
+        timestamps: false,
     }
 );
 

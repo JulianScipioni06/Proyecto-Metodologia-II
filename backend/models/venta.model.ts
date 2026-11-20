@@ -10,19 +10,23 @@ class Venta extends Model {
 
 Venta.init(
     {
-        id_venta : {
+        id_venta: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
         },
-        fecha_venta : {
+        fecha_venta: {
             type: DataTypes.DATE,
             allowNull: false,
         },
-        monto_total : {
+        monto_total: {
             type: DataTypes.DECIMAL(10, 2),
             allowNull: false,
-        }
+        },
+        id_cliente: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     },
     {
         sequelize,
