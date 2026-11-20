@@ -8,12 +8,16 @@ async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
         ...options,
     });
 
+    if (response.status === 204) {
+        return undefined as T;
+    }
+
     const data = await response.json();
 
     if (!response.ok) {
         const mensajeError =
             data.errores?.join(' | ') ||
-            data.error ||
+            (typeof data.error === 'string' ? data.error : null) ||
             data.msg ||
             data.mensaje ||
             data.message ||

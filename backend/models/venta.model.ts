@@ -23,6 +23,10 @@ Venta.init(
             type: DataTypes.DECIMAL(10, 2),
             allowNull: false,
         },
+        id_cliente: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     },
     {
         sequelize,

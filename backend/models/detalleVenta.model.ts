@@ -16,6 +16,14 @@ DetalleVenta.init(
             autoIncrement: true,
             primaryKey: true,
         },
+        id_venta: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        id_articulo: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         cant_articulo: {
             type: DataTypes.INTEGER,
             allowNull: false,

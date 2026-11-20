@@ -35,6 +35,7 @@ export interface Articulo {
 }
 
 export interface DetalleVentaItem {
+    id_detalle?:number;
     id_articulo: number;
     cant_articulo: number;
     precio_unidad: number;
@@ -46,5 +47,6 @@ export interface Venta {
     fecha_venta: string;
     monto_total: number;
     id_cliente: number;
+    detalles?: DetalleVentaItem[];
     items?: DetalleVentaItem[];
 }

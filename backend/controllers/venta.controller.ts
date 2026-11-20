@@ -1,10 +1,18 @@
 import { Request, Response } from 'express';
 import VentaFacade from '../services/venta.facade';
 import Venta from '../models/venta.model';
+import DetalleVenta from '../models/detalleVenta.model';
 
 export const getVentas = async (req: Request, res: Response): Promise<void> => {
     try {
-        const ventas = await Venta.findAll();
+        const ventas = await Venta.findAll({
+            include: [
+                {
+                    model: DetalleVenta,
+                    as: 'detalles',
+                },
+            ],
+        });
         res.status(200).json(ventas);
     } catch (error: unknown) {
         const message =
