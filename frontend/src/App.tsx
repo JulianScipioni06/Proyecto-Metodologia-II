@@ -6,6 +6,7 @@ import { ClientesPage } from './pages/ClientesPage';
 import { MascotasPage } from './pages/MascotasPage';
 import { TurnosPage } from './pages/TurnosPage';
 import { ArticulosPage } from './pages/ArticulosPage';
+import { VentasPage } from './pages/VentasPage';
 
 export function App() {
     const [seccionActiva, setSeccionActiva] = useState<SeccionActiva>('turnos');
@@ -20,13 +21,8 @@ export function App() {
           return <TurnosPage/>;
         case 'articulos':
           return <ArticulosPage/>;
-        default:
-          return (
-                <div className="card">
-                    <h3>Módulo: {seccionActiva.toUpperCase()}</h3>
-                    <p>En Desarrolo</p>
-                </div>
-            );
+        case 'ventas':
+          return <VentasPage/>
       }
     };
     return (
