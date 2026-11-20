@@ -13,7 +13,7 @@ async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
     if (!response.ok) {
         const mensajeError =
             data.errores?.join(' | ') ||
-            data.error ||
+            (typeof data.error === 'string' ? data.error : null) ||
             data.msg ||
             data.mensaje ||
             data.message ||
