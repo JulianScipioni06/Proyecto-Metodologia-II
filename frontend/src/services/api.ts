@@ -8,6 +8,10 @@ async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
         ...options,
     });
 
+    if (response.status === 204) {
+        return undefined as T;
+    }
+
     const data = await response.json();
 
     if (!response.ok) {

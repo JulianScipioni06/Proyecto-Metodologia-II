@@ -9,7 +9,11 @@ import Mascota from './mascotas.models';
 
 // Si tuvieras que armar las relaciones (las Foreign Keys), las definís acá abajo.
 // Ejemplo:
-Venta.hasMany(DetalleVenta, { foreignKey: 'id_venta', as: 'detalles', onDelete: 'CASCADE' });
+Venta.hasMany(DetalleVenta, {
+    foreignKey: 'id_venta',
+    as: 'detalles',
+    onDelete: 'CASCADE',
+});
 DetalleVenta.belongsTo(Venta, { foreignKey: 'id_venta' });
 
 const db = {
